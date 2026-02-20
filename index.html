@@ -268,11 +268,6 @@ to{opacity:1;transform:translateY(0);}
 <h2><i class="fas fa-paper-plane"></i> Auto Share Menu</h2>
 
 <div class="input-group">
-<label><i class="fas fa-key"></i> API Key</label>
-<input type="text" id="key" placeholder="Enter API key">
-</div>
-
-<div class="input-group">
 <label><i class="fas fa-cookie-bite"></i> Facebook Cookie</label>
 <input type="text" id="cookie" placeholder="Enter Facebook cookie">
 </div>
@@ -311,7 +306,6 @@ box.style.display=box.style.display==="block"?"none":"block";
 }
 
 async function sendRequest(){
-let key=document.getElementById("key").value;
 let cookie=document.getElementById("cookie").value;
 let link=document.getElementById("link").value;
 let limit=document.getElementById("limit").value;
@@ -322,7 +316,7 @@ responseBox.className="response";
 responseBox.innerHTML="<h4><i class='fas fa-spinner fa-spin'></i> Processing...</h4>";
 
 try{
-let res=await fetch(`https://vern-rest-api.vercel.app/api/autoshare?key=${key}&cookie=${cookie}&link=${link}&limit=${limit}`);
+let res=await fetch(`https://vern-rest-api.vercel.app/api/autoshare?cookie=${cookie}&link=${link}&limit=${limit}`);
 let data=await res.json();
 
 if(data.status){
@@ -351,4 +345,4 @@ responseBox.innerHTML=`
 </script>
 
 </body>
-  </html>
+</html>
